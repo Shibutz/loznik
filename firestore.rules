@@ -1,0 +1,32 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Events ────────────────────────────────────────────────────────────────
+    // Public events readable by everyone.
+    // Staff/admin events readable when the client requests them (app-level auth).
+    // Writes are open because admin authentication is handled at the app level
+    // (SHA-256 password check). This mirrors the existing Supabase anon-key setup.
+    match /events/{eventId} {
+      allow read:  if true;
+      allow write: if true;
+    }
+
+    // ── Configuration collections (layers, classes, categories) ───────────────
+    match /layers/{docId} {
+      allow read:  if true;
+      allow write: if true;
+    }
+
+    match /classes/{docId} {
+      allow read:  if true;
+      allow write: if true;
+    }
+
+    match /categories/{docId} {
+      allow read:  if true;
+      allow write: if true;
+    }
+  }
+}

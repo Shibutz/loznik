@@ -1,0 +1,27 @@
+name: Weekly Push Digest
+
+on:
+  schedule:
+    # Thursday 11:00 UTC = 14:00 Israel time
+    - cron: "0 11 * * 4"
+  workflow_dispatch: {}   # allow manual trigger for testing
+
+jobs:
+  send-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Send weekly push
+        run: node scripts/sendWeeklyPush.mjs
+        env:
+          ONESIGNAL_REST_API_KEY:     ${{ secrets.ONESIGNAL_REST_API_KEY }}
+          VITE_ONESIGNAL_APP_ID:      ${{ secrets.VITE_ONESIGNAL_APP_ID }}
+          VITE_FIREBASE_API_KEY:      ${{ secrets.VITE_FIREBASE_API_KEY }}
+          VITE_FIREBASE_PROJECT_ID:   ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
+          VITE_FIREBASE_AUTH_DOMAIN:  ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
+          VITE_FIREBASE_APP_ID:       ${{ secrets.VITE_FIREBASE_APP_ID }}

@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Emerald (default / public) ─────────────────────────────────────── */
+:root {
+  font-family: 'Heebo', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --color-primary-50:  236 253 245;
+  --color-primary-100: 209 250 229;
+  --color-primary-200: 167 243 208;
+  --color-primary-300: 110 231 183;
+  --color-primary-400:  52 211 153;
+  --color-primary-500:  16 185 129;
+  --color-primary-600:   5 150 105;
+  --color-primary-700:   4 120  87;
+  --color-primary-800:   6  95  70;
+  --color-primary-900:   6  78  59;
+  --color-primary-hex: #059669;
+}
+
+/* ── Blue (staff) ────────────────────────────────────────────────────── */
+[data-theme="blue"] {
+  --color-primary-50:  239 246 255;
+  --color-primary-100: 219 234 254;
+  --color-primary-200: 191 219 254;
+  --color-primary-300: 147 197 253;
+  --color-primary-400:  96 165 250;
+  --color-primary-500:  59 130 246;
+  --color-primary-600:  37  99 235;
+  --color-primary-700:  29  78 216;
+  --color-primary-800:  30  64 175;
+  --color-primary-900:  30  58 138;
+  --color-primary-hex: #2563eb;
+}
+
+/* ── Violet (admin) ──────────────────────────────────────────────────── */
+[data-theme="violet"] {
+  --color-primary-50:  245 243 255;
+  --color-primary-100: 237 233 254;
+  --color-primary-200: 221 214 254;
+  --color-primary-300: 196 181 253;
+  --color-primary-400: 167 139 250;
+  --color-primary-500: 139  92 246;
+  --color-primary-600: 124  58 237;
+  --color-primary-700: 109  40 217;
+  --color-primary-800:  91  33 182;
+  --color-primary-900:  76  29 149;
+  --color-primary-hex: #7c3aed;
+}
+
+/* ── Rose ────────────────────────────────────────────────────────────── */
+[data-theme="rose"] {
+  --color-primary-50:  255 241 242;
+  --color-primary-100: 255 228 230;
+  --color-primary-200: 254 205 211;
+  --color-primary-300: 253 164 175;
+  --color-primary-400: 251 113 133;
+  --color-primary-500: 244  63  94;
+  --color-primary-600: 225  29  72;
+  --color-primary-700: 190  18  60;
+  --color-primary-800: 159  18  57;
+  --color-primary-900: 136  19  55;
+  --color-primary-hex: #e11d48;
+}
+
+/* ── Orange ──────────────────────────────────────────────────────────── */
+[data-theme="orange"] {
+  --color-primary-50:  255 247 237;
+  --color-primary-100: 255 237 213;
+  --color-primary-200: 254 215 170;
+  --color-primary-300: 253 186 116;
+  --color-primary-400: 251 146  60;
+  --color-primary-500: 249 115  22;
+  --color-primary-600: 234  88  12;
+  --color-primary-700: 194  65  12;
+  --color-primary-800: 154  52  18;
+  --color-primary-900: 124  45  18;
+  --color-primary-hex: #ea580c;
+}
+
+/* ── Cyan ────────────────────────────────────────────────────────────── */
+[data-theme="cyan"] {
+  --color-primary-50:  236 254 255;
+  --color-primary-100: 207 250 254;
+  --color-primary-200: 165 243 252;
+  --color-primary-300: 103 232 249;
+  --color-primary-400:  34 211 238;
+  --color-primary-500:   6 182 212;
+  --color-primary-600:   8 145 178;
+  --color-primary-700:  14 116 144;
+  --color-primary-800:  21  94 117;
+  --color-primary-900:  22  78  99;
+  --color-primary-hex: #0891b2;
+}
+
+/* ── Slate ───────────────────────────────────────────────────────────── */
+[data-theme="slate"] {
+  --color-primary-50:  248 250 252;
+  --color-primary-100: 241 245 249;
+  --color-primary-200: 226 232 240;
+  --color-primary-300: 203 213 225;
+  --color-primary-400: 148 163 184;
+  --color-primary-500: 100 116 139;
+  --color-primary-600:  71  85 105;
+  --color-primary-700:  51  65  85;
+  --color-primary-800:  30  41  59;
+  --color-primary-900:  15  23  42;
+  --color-primary-hex: #475569;
+}
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font-family: 'Heebo', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #374151;
+}
+
+/* Smooth transitions for interactive elements */
+button, a {
+  transition: all 0.15s ease;
+}
+
+/* Global transition for color scheme changes */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Override transition for non-color properties */
+button, a, [role="button"] {
+  transition-property: background-color, border-color, color, fill, stroke, transform, box-shadow, opacity;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--color-primary-hex);
+  outline-offset: 2px;
+}
+
+/* Hebrew font support fallback */
+@supports (font-family: 'Arial Hebrew') {
+  :root {
+    font-family: 'Heebo', 'Arial Hebrew', 'Segoe UI', system-ui, sans-serif;
+  }
+}
+
+/* Gradient text utility for brand name */
+.brand-gradient {
+  background: linear-gradient(to left, var(--color-primary-hex), rgb(var(--color-primary-700)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Modal open animation */
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal-in {
+  animation: modal-in 0.2s ease-out forwards;
+}
+
+/* Bottom sheet slide up */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.25s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+/* loznik-print-container: hidden normally, shown only during print */
+#loznik-print-container {
+  display: none;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { direction: rtl; overflow: visible !important; }
+  #root { overflow: visible !important; height: auto !important; }
+
+  /* When printing an injected export, hide the app and show only the container */
+  body:has(#loznik-print-container) > *:not(#loznik-print-container) {
+    display: none !important;
+  }
+  #loznik-print-container {
+    display: block !important;
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    padding: 20px;
+  }
+  #loznik-print-container h1 {
+    color: var(--color-primary-hex);
+    font-size: 18px;
+    margin-bottom: 14px;
+    text-align: center;
+    border-bottom: 2px solid var(--color-primary-hex);
+    padding-bottom: 6px;
+  }
+  #loznik-print-container table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+  }
+  #loznik-print-container th {
+    background: var(--color-primary-hex) !important;
+    color: white !important;
+    padding: 6px 8px;
+    text-align: right;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  #loznik-print-container td {
+    padding: 5px 8px;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+  }
+  #loznik-print-container tr:nth-child(even) td {
+    background: rgb(var(--color-primary-50)) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  /* Wall chart */
+  #loznik-print-container table.wall td {
+    border: 1px solid #d1d5db;
+    width: 80px;
+    min-height: 60px;
+    vertical-align: top;
+    padding: 4px;
+  }
+  #loznik-print-container .day-num {
+    font-weight: 700;
+    color: var(--color-primary-hex);
+    font-size: 12px;
+  }
+  #loznik-print-container .dow {
+    font-size: 9px;
+    color: #6b7280;
+    font-weight: normal;
+  }
+  #loznik-print-container .ev {
+    background: rgb(var(--color-primary-100)) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    border-radius: 2px;
+    padding: 1px 3px;
+    font-size: 9px;
+    margin-top: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Lightbox fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

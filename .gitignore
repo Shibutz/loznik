@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env.local
+.env
+deploy_only.bat
+git_push.bat
+service-account-key.json
+.firebase/
+.netlify/
+.claude/
+vite.config.ts.timestamp-*
